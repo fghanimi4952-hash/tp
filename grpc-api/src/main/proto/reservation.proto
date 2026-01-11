@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.hotel.reservation.grpc";
+option java_outer_classname = "ReservationProto";
+
+package reservation;
+
+// Service de réservation gRPC
+service ReservationService {
+    // Crée une nouvelle réservation
+    rpc CreateReservation (CreateReservationRequest) returns (ReservationResponse);
+    
+    // Récupère une réservation par son ID
+    rpc GetReservation (GetReservationRequest) returns (ReservationResponse);
+    
+    // Récupère toutes les réservations
+    rpc GetAllReservations (GetAllReservationsRequest) returns (ReservationListResponse);
+    
+    // Met à jour une réservation
+    rpc UpdateReservation (UpdateReservationRequest) returns (ReservationResponse);
+    
+    // Supprime une réservation
+    rpc DeleteReservation (DeleteReservationRequest) returns (DeleteReservationResponse);
+}
+
+// Message Client
+message Client {
+    int64 id = 1;
+    string nom = 2;
+    string prenom = 3;
+    string email = 4;
+    string telephone = 5;
+}
+
+// Message Chambre
+message Chambre {
+    int64 id = 1;
+    string type = 2;
+    double prix = 3;
+    bool disponible = 4;
+}
+
+// Message Reservation
+message Reservation {
+    int64 id = 1;
+    int64 client_id = 2;
+    int64 chambre_id = 3;
+    string date_debut = 4;
+    string date_fin = 5;
+    string preferences = 6;
+    string statut = 7;
+}
+
+// Requêtes
+message CreateReservationRequest {
+    int64 client_id = 1;
+    int64 chambre_id = 2;
+    string date_debut = 3;
+    string date_fin = 4;
+    string preferences = 5;
+}
+
+message GetReservationRequest {
+    int64 id = 1;
+}
+
+message GetAllReservationsRequest {
+}
+
+message UpdateReservationRequest {
+    int64 id = 1;
+    int64 client_id = 2;
+    int64 chambre_id = 3;
+    string date_debut = 4;
+    string date_fin = 5;
+    string preferences = 6;
+}
+
+message DeleteReservationRequest {
+    int64 id = 1;
+}
+
+// Réponses
+message ReservationResponse {
+    Reservation reservation = 1;
+}
+
+message ReservationListResponse {
+    repeated Reservation reservations = 1;
+}
+
+message DeleteReservationResponse {
+    bool success = 1;
+    string message = 2;
+}
