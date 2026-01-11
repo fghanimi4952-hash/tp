@@ -1,35 +1,15 @@
-# 🏨 Étude de Cas : Analyse Scalabilité/Performance des APIs Modernes
+#  Étude de Cas : Analyse Scalabilité/Performance des APIs Modernes
 
 ## Contexte
 
 Ce projet compare les performances de quatre technologies d'API modernes (REST, SOAP, GraphQL, gRPC) pour un système de gestion d'hôtel. Chaque technologie est implémentée comme un module séparé avec la même base de données pour garantir une comparaison équitable.
 
-## 📁 Structure du Projet
+## Structure du Projet
 
-```
-hotel-reservation-api-comparison/
-├── pom.xml                          # POM parent Maven
-├── README.md                        # Ce fichier
-├── database/
-│   └── schema.sql                   # Script de création de la base de données
-├── rest-api/                        # Module REST API (Port 8081)
-│   ├── pom.xml
-│   └── src/main/java/...
-├── soap-api/                        # Module SOAP API (Port 8082)
-│   ├── pom.xml
-│   └── src/main/java/...
-├── graphql-api/                     # Module GraphQL API (Port 8083)
-│   ├── pom.xml
-│   └── src/main/java/...
-├── grpc-api/                        # Module gRPC API (Port 8084)
-│   ├── pom.xml
-│   └── src/main/java/...
-└── frontend/                        # Client React.js
-    ├── package.json
-    └── src/...
-```
+<img width="465" height="681" alt="Capture d’écran 2026-01-11 à 12 17 50" src="https://github.com/user-attachments/assets/e0427fea-83e4-477a-9998-0e18d0f659b5" />
 
-## 🛠️ Technologies Utilisées
+
+##  Technologies Utilisées
 
 ### Backend
 - **Java 17** avec **Spring Boot 3.1.5**
@@ -42,7 +22,7 @@ hotel-reservation-api-comparison/
 ### Frontend
 - **React.js 18** avec **Axios** pour les requêtes HTTP
 
-## 📋 Prérequis
+##  Prérequis
 
 1. **Java 17** ou supérieur
 2. **Maven 3.8+**
@@ -50,7 +30,7 @@ hotel-reservation-api-comparison/
 4. **Node.js 16+** et **npm** (pour le client React)
 5. **MySQL Workbench** ou un client MySQL (optionnel)
 
-## 🚀 Installation et Configuration
+## Installation et Configuration
 
 ### 1. Configuration de la Base de Données
 
@@ -86,7 +66,7 @@ mvn clean install
 
 Cette commande compile tous les modules Maven.
 
-## 🎯 Démarrage des Services
+##  Démarrage des Services
 
 ### REST API (Port 8081)
 
@@ -145,7 +125,8 @@ npm start
 
 Le client React sera accessible à : http://localhost:3000
 
-## 📊 Endpoints et Opérations
+
+##  Endpoints et Opérations
 
 ### REST API
 
@@ -221,7 +202,7 @@ mutation {
 
 Consultez le fichier `reservation.proto` pour les définitions des services et messages. Utilisez un client gRPC (comme BloomRPC ou grpcurl) pour tester.
 
-## 🧪 Tests de Performance
+##  Tests de Performance
 
 Pour tester les performances, vous pouvez utiliser les outils suivants :
 
@@ -247,7 +228,7 @@ curl -X POST http://localhost:8081/api/clients \
 curl http://localhost:8081/api/reservations
 ```
 
-## 📈 Métriques à Mesurer
+##  Métriques à Mesurer
 
 1. **Latence (Temps de réponse)**:
    - Temps moyen, médian, p95, p99
@@ -272,7 +253,7 @@ curl http://localhost:8081/api/reservations
    - Gestion de l'authentification
    - Résistance aux attaques
 
-## 🔧 Dépannage
+##  Dépannage
 
 ### Erreur de connexion à la base de données
 
@@ -296,21 +277,12 @@ java -version
 mvn -version
 ```
 
-## 📝 Notes
+##  Notes
 
 - Chaque module est indépendant et peut être démarré séparément
 - Tous les modules partagent la même base de données pour une comparaison équitable
 - Le code est commenté en français pour faciliter la compréhension
 - Les ports par défaut peuvent être modifiés dans les fichiers `application.properties`
 
-## 👥 Auteurs
 
-Projet réalisé dans le cadre d'une étude comparative des performances des APIs modernes.
 
-## 📄 Licence
-
-Ce projet est fourni à des fins éducatives et de recherche.
-
----
-
-**Bon test ! 🚀**
